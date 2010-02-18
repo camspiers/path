@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<title>jquery.path.js</title>
+		<style type="text/css">
+		    .width{
+			margin:0 auto;
+			width: 802px;
+		    }
+		    .highlight{
+			    outline: 1px solid red;
+		    }
+		    .option{
+			    outline: 1px solid black;
+		    }
+		    div > div{
+			    margin-left: 10px;
+		    }
+		</style>
+		<script type="text/javascript" src="/shared/jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.path.js"></script>
+		<script type="text/javascript">
+		    (function($){
+				$(function(){
+					var $path = $('#Path');
+					$path.click(function(event){
+						event.preventDefault();
+						$('*').removeClass('highlight');
+						$($path.text()).addClass('highlight');
+					});
+					$('*').mouseenter(function (event) {
+						$('*').removeClass('option');
+						$(event.target).addClass('option');
+						if (event.shiftKey) {
+							$path.text($(event.target).path());
+						}
+					});
+				});
+		    })(jQuery);
+		</script>
+	</head>
+	<body class="width">
+		<h1>jquery.path</h1>
+		<p>Returns a selector which will find the element on the dom when passed into jQuery</p>
+		<h2>Hold <span style="color:red">shift</span> while hovering over an element to generate path</h2>
+		<p><a href="#" id="Path">*</a><br/><em><span style="color:red">Click</span> to test generated selector</em></p>
+		<p>This is some content</p>
+		<div>
+			<ul>
+				<li id="First">Content</li>
+				<li>Content</li>
+				<li>Content</li>
+				<li>Content</li>
+				<li>Content</li>
+				<li>Content</li>
+				<li>Content</li>
+			</ul>
+		</div>
+		<div>
+			<p>More and more nesting</p>
+			<div>
+				<p>More and more nesting</p>
+				<div>
+					<p>More and more nesting</p>
+					<div>
+						<p>More and more nesting</p>
+						<div>
+							<p>More and more nesting</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
