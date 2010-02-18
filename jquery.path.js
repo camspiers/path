@@ -31,8 +31,6 @@
 
 		if ($el.attr('id') !== '') {
 
-			path = [];
-
 			path.push( '#' + $el.attr('id') );
 
 			break;
