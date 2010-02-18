@@ -14,7 +14,7 @@
  * @name     path
  * @version  0.1
  * @author   Cam Spiers (camspiers [at] gmail [dot] com)
- * @requires jQuery 1.3.2
+ * @requires jQuery
  * @example  jQuery('#SomeElement').path();
  *
  */
